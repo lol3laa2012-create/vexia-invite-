@@ -1,26 +1,29 @@
 VEXIA Discord invite landing page
 =================================
 
+This project is a clean landing page for the VEXIA Discord community.
+
 FILES
-- index.html: the full landing page
-- assets/logo.svg: placeholder logo for the server
+- index.html: full landing page
+- assets/logo.svg: starter logo
 
 CUSTOMIZE
-1. Open index.html in a text editor.
-2. Change your Discord link if needed.
-3. Replace the owner name and any text to match your server.
-4. Replace the logo in assets/logo.svg or add your own logo image.
+1. Open index.html.
+2. Change the Discord link if needed.
+3. Change the owner name or community text.
+4. Replace the logo file if you want a custom one.
 
 PUBLISH WITH GITHUB PAGES
-1. Go to GitHub and open the repository.
-2. Open Settings > Pages.
-3. Choose Deploy from a branch.
-4. Select main as the branch and /(root) as the folder.
-5. Save and wait a few minutes.
-6. Open the generated GitHub Pages URL.
+1. Open the repository.
+2. Go to Settings > Pages.
+3. Set Source to Deploy from a branch.
+4. Choose branch: main
+5. Folder: /(root)
+6. Save.
+7. Wait a few minutes and copy the generated link.
 
-NOTE
-The invite link currently points to:
+CURRENT DISCORD INVITE
 https://discord.gg/rMW8Svd9CW
 
-Make sure this invite is active before publishing.
+NOTE
+This is a fresh reset of the project. If you want to use a custom domain later, you can add it in GitHub Pages settings.

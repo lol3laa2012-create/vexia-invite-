@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#120d1d" />
-  <meta name="description" content="VEXIA — مجتمع للألعاب، الدردشة، والمرح." />
+  <meta name="theme-color" content="#0d0718" />
+  <meta name="description" content="VEXIA — مجتمع للألعاب والدردشة والمرح." />
   <title>VEXIA</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -13,14 +13,14 @@
     :root {
       --bg: #090610;
       --bg-2: #120d1d;
-      --panel: rgba(25, 18, 34, 0.9);
-      --pink: #d9a8ff;
+      --panel: rgba(27, 20, 34, 0.9);
       --purple: #9a5dff;
       --purple-2: #6e39d7;
+      --pink: #dcaeff;
       --text: #f9f4ff;
       --muted: #c8b9d8;
-      --line: rgba(209, 169, 255, 0.22);
-      --shadow: rgba(128, 70, 255, 0.26);
+      --line: rgba(210, 171, 255, 0.24);
+      --shadow: rgba(130, 71, 255, 0.28);
       --radius: 24px;
     }
 
@@ -30,7 +30,7 @@
       margin: 0;
       font-family: "Cairo", sans-serif;
       color: var(--text);
-      background: radial-gradient(circle at top, rgba(155,92,255,0.2), transparent 28rem), radial-gradient(circle at left, rgba(155,92,255,0.12), transparent 24rem), var(--bg);
+      background: radial-gradient(circle at top, rgba(154,93,255,0.22), transparent 28rem), radial-gradient(circle at left, rgba(154,93,255,0.12), transparent 24rem), var(--bg);
       overflow-x: hidden;
     }
     a { color: inherit; text-decoration: none; }
@@ -40,21 +40,24 @@
       position: fixed;
       inset: 0;
       pointer-events: none;
-      opacity: 0.08;
-      background-image: radial-gradient(rgba(255,255,255,0.35) 1px, transparent 1px);
+      opacity: 0.09;
+      background-image: radial-gradient(rgba(255,255,255,0.45) 1.1px, transparent 1.1px);
       background-size: 7px 7px;
       mask-image: linear-gradient(to bottom, rgba(0,0,0,1), transparent 90%);
       z-index: -1;
     }
 
-    .container { width: min(1120px, calc(100% - 32px)); margin-inline: auto; }
+    .container {
+      width: min(1120px, calc(100% - 32px));
+      margin-inline: auto;
+    }
 
     .nav-wrap {
       position: sticky;
       top: 0;
-      z-index: 50;
+      z-index: 30;
       backdrop-filter: blur(18px);
-      background: rgba(9, 6, 15, 0.72);
+      background: rgba(10, 6, 16, 0.74);
       border-bottom: 1px solid rgba(255,255,255,0.06);
     }
 
@@ -71,8 +74,8 @@
       align-items: center;
       gap: 12px;
       font-weight: 900;
-      font-size: 1.15rem;
       letter-spacing: 2px;
+      font-size: 1.12rem;
     }
 
     .brand-mark {
@@ -83,17 +86,16 @@
       border-radius: 12px;
       background: linear-gradient(135deg, var(--pink), var(--purple-2));
       box-shadow: 0 0 28px var(--shadow);
-      font-size: 1.2rem;
+      font-size: 1.18rem;
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 26px;
+      gap: 24px;
       color: var(--muted);
       font-size: 0.92rem;
     }
-
     .nav-links a:hover { color: white; }
 
     .nav-join, .button {
@@ -101,31 +103,31 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
+      padding: 12px 20px;
       border-radius: 14px;
       border: 1px solid rgba(255,255,255,0.12);
-      background: linear-gradient(135deg, #a66bff, #6e38d9);
+      background: linear-gradient(135deg, #a86cfe, #6d38d8);
       color: white;
       font-weight: 800;
-      padding: 12px 20px;
-      box-shadow: 0 12px 30px rgba(128,70,255,0.26);
+      box-shadow: 0 12px 30px rgba(128, 70, 255, 0.28);
       transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
     }
 
     .nav-join:hover, .button:hover {
       transform: translateY(-3px);
-      box-shadow: 0 16px 42px rgba(128,70,255,0.35);
+      box-shadow: 0 16px 42px rgba(128, 70, 255, 0.34);
       filter: brightness(1.06);
     }
 
     .button.secondary {
-      background: rgba(255,255,255,0.03);
+      background: rgba(255, 255, 255, 0.03);
       border-color: var(--line);
       box-shadow: none;
     }
 
     .hero {
       position: relative;
-      min-height: 680px;
+      min-height: 670px;
       display: grid;
       place-items: center;
       text-align: center;
@@ -140,16 +142,15 @@
       border-radius: 50%;
       filter: blur(80px);
       opacity: 0.26;
-      pointer-events: none;
       animation: float 7s ease-in-out infinite;
+      pointer-events: none;
     }
 
     .hero::before {
-      background: #7c3bfd;
+      background: #7d3df9;
       top: 18%;
       right: -70px;
     }
-
     .hero::after {
       background: #db8eff;
       bottom: 8%;
@@ -168,11 +169,11 @@
       align-items: center;
       gap: 9px;
       border: 1px solid var(--line);
-      border-radius: 999px;
       padding: 8px 16px;
+      border-radius: 999px;
+      background: rgba(154,93,255,0.08);
       color: #e4d0ff;
-      background: rgba(155,92,255,0.08);
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       margin-bottom: 24px;
     }
 
@@ -180,18 +181,18 @@
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background: #c79bff;
-      box-shadow: 0 0 12px #c79bff;
+      background: #d1a8ff;
+      box-shadow: 0 0 12px #d1a8ff;
     }
 
     .logo-frame {
-      width: 132px;
-      height: 132px;
+      width: 130px;
+      height: 130px;
       margin: 0 auto 24px;
       padding: 4px;
       border-radius: 36px;
-      background: linear-gradient(135deg, #f0d3ff, #8f58ff, #2c174a);
-      box-shadow: 0 0 55px rgba(155,92,255,0.4);
+      background: linear-gradient(135deg, #f0d3ff, #8d5cff, #2d173d);
+      box-shadow: 0 0 55px rgba(154,93,255,0.38);
       animation: logoFloat 4s ease-in-out infinite;
     }
 
@@ -200,27 +201,27 @@
       height: 100%;
       object-fit: cover;
       border-radius: 32px;
-      background: #140d1f;
+      background: #130d1d;
     }
 
     h1 {
       margin: 0;
-      font-size: clamp(3.3rem, 9vw, 7rem);
+      font-size: clamp(3.2rem, 9vw, 7rem);
       line-height: 1.05;
       letter-spacing: 0.05em;
-      direction: ltr;
       font-weight: 900;
+      direction: ltr;
     }
 
     .gradient-text {
-      background: linear-gradient(90deg, #ffffff 12%, #e1c1ff 42%, #a867ff 88%);
+      background: linear-gradient(90deg, #ffffff 12%, #e5c9ff 42%, #a562ff 90%);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
     }
 
     .hero p {
-      max-width: 650px;
+      max-width: 640px;
       margin: 22px auto 0;
       color: var(--muted);
       line-height: 2;
@@ -237,41 +238,40 @@
 
     .micro {
       margin-top: 18px;
-      color: #8d7aa6;
-      font-size: 0.82rem;
+      color: #8f7aa5;
+      font-size: 0.81rem;
     }
 
     .scroll-cue {
       margin-top: 38px;
-      color: #a190ba;
+      color: #9e8ab3;
       font-size: 0.8rem;
     }
-
     .scroll-cue span {
       display: block;
       font-size: 1.2rem;
+      animation: bob 1.6s infinite;
       margin-top: 4px;
-      animation: bob 1.5s infinite;
     }
 
     section { padding: 78px 0; }
 
     .section-head {
-      max-width: 720px;
-      margin: 0 auto 38px;
       text-align: center;
+      max-width: 700px;
+      margin: 0 auto 38px;
     }
 
     .kicker {
-      color: #d4a9ff;
-      font-weight: 800;
-      font-size: 0.8rem;
+      color: #d5a9ff;
+      font-size: 0.78rem;
       letter-spacing: 0.14em;
+      font-weight: 800;
     }
 
     h2 {
       margin: 8px 0 12px;
-      font-size: clamp(2rem, 4vw, 3rem);
+      font-size: clamp(2rem, 4vw, 2.9rem);
     }
 
     .section-head p {
@@ -287,16 +287,15 @@
     }
 
     .card {
-      background: linear-gradient(145deg, rgba(32, 22, 47, 0.9), rgba(18,12,28,0.88));
+      background: linear-gradient(145deg, rgba(31, 22, 46, 0.9), rgba(18, 12, 28, 0.88));
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      padding: 26px;
+      padding: 28px;
       transition: transform 0.25s ease, border-color 0.25s ease;
     }
-
     .card:hover {
       transform: translateY(-5px);
-      border-color: rgba(200,164,255,0.46);
+      border-color: rgba(200, 164, 255, 0.46);
     }
 
     .icon-box {
@@ -305,10 +304,10 @@
       display: grid;
       place-items: center;
       border-radius: 16px;
-      background: rgba(155,92,255,0.12);
-      color: #e4c9ff;
-      font-size: 1.4rem;
       margin-bottom: 16px;
+      background: rgba(154,93,255,0.12);
+      color: #e7d0ff;
+      font-size: 1.4rem;
     }
 
     .card h3 {
@@ -333,10 +332,10 @@
       display: flex;
       align-items: flex-start;
       gap: 16px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.025);
-      border-radius: 18px;
       padding: 20px 18px;
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
     }
 
     .rule-num {
@@ -346,8 +345,8 @@
       display: grid;
       place-items: center;
       border-radius: 12px;
-      background: rgba(155,92,255,0.15);
-      color: #ebd9ff;
+      background: rgba(154,93,255,0.13);
+      color: #f0dcff;
       font-weight: 900;
     }
 
@@ -372,9 +371,9 @@
       display: grid;
       place-items: center;
       border-radius: 24px;
-      background: linear-gradient(135deg, #a86dff, #382456);
-      border: 1px solid rgba(211,184,255,0.4);
-      font-size: 1.75rem;
+      background: linear-gradient(135deg, #a86dff, #372355);
+      border: 1px solid rgba(210,175,255,0.4);
+      font-size: 1.8rem;
     }
 
     .role {
@@ -382,10 +381,10 @@
       margin-top: 6px;
       padding: 5px 10px;
       border-radius: 999px;
-      background: rgba(155,92,255,0.14);
-      color: #e7d4ff;
-      font-size: 0.74rem;
+      background: rgba(154,93,255,0.14);
+      color: #ead4ff;
       font-weight: 700;
+      font-size: 0.74rem;
     }
 
     .team-card p {
@@ -394,13 +393,13 @@
     }
 
     .cta {
-      position: relative;
-      overflow: hidden;
       text-align: center;
       padding: 44px 28px;
       border-radius: 30px;
-      border: 1px solid rgba(209,168,255,0.28);
-      background: radial-gradient(ellipse at top, rgba(133,79,214,0.26), transparent 68%), #140e1f;
+      border: 1px solid rgba(212,170,255,0.26);
+      background: radial-gradient(ellipse at top, rgba(130,79,214,0.24), transparent 68%), #140e1f;
+      overflow: hidden;
+      position: relative;
     }
 
     .cta p {
@@ -413,7 +412,7 @@
     footer {
       padding: 28px 0 36px;
       border-top: 1px solid rgba(255,255,255,0.08);
-      color: #8e7f9f;
+      color: #8f7d9e;
       font-size: 0.82rem;
     }
 
@@ -430,24 +429,23 @@
       transform: translateY(18px);
       transition: opacity 0.7s ease, transform 0.7s ease;
     }
-
     .reveal.visible {
       opacity: 1;
       transform: translateY(0);
     }
 
     @keyframes logoFloat {
-      0%, 100% { transform: translateY(0) rotate(-2deg); }
+      0%,100% { transform: translateY(0) rotate(-2deg); }
       50% { transform: translateY(-8px) rotate(2deg); }
     }
 
     @keyframes float {
-      0%, 100% { transform: translateY(0); }
+      0%,100% { transform: translateY(0); }
       50% { transform: translateY(-25px); }
     }
 
     @keyframes bob {
-      0%, 100% { transform: translateY(0); }
+      0%,100% { transform: translateY(0); }
       50% { transform: translateY(7px); }
     }
 
@@ -476,7 +474,7 @@
 
   <div class="nav-wrap">
     <nav class="container">
-      <a href="#home" class="brand" aria-label="VEXIA Home">
+      <a href="#home" class="brand" aria-label="VEXIA home">
         <span class="brand-mark">V</span>
         <span>VEXIA</span>
       </a>
@@ -504,8 +502,8 @@
         <h1 class="gradient-text">VEXIA</h1>
 
         <p>
-          VEXIA مش مجرد سيرفر — هو مساحة حلوة للمرح، الدردشة، الألعاب، والتعرف على ناس جديدة.
-          فيه أجواء مريحة ومشوقة، ومجتمع تقدر تتفاعل معه وتستمتع بوقتك.
+          VEXIA مش مجرد سيرفر — هو مكان حلو للمرح، الدردشة، الألعاب، والتعرف على ناس جديدة.
+          جو مريح، أصدقاء، ومجتمع بيحب التفاعل والمرح.
         </p>
 
         <div class="hero-actions">
@@ -513,7 +511,7 @@
           <a class="button secondary" href="#about">اكتشف أكثر ↓</a>
         </div>
 
-        <div class="micro">ألعاب • دردشة • أصدقاء • فعاليات • مرح</div>
+        <div class="micro">ألعاب • دردشة • مجتمع • أصدقاء • فعاليات</div>
         <div class="scroll-cue">اكتشف المزيد <span>⌄</span></div>
       </div>
     </section>
@@ -522,10 +520,10 @@
       <div class="container">
         <div class="section-head reveal">
           <div class="kicker">ABOUT VEXIA</div>
-          <h2>مجتمع يجمع المرح والناس الجيدة</h2>
+          <h2>مجتمع يلائم كل اللي يحب المرح</h2>
           <p>
-            في VEXIA، أنت بتلقى جو مناسب لألعابك المفضلة، دردشة ممتعة، ومناقشات لا تنتهي.
-            المكان مناسب لمن يحب التفاعل، الاسترخاء، واللحظات المضحكة مع ناس جديدة.
+            في VEXIA، أنت بتلاقي جو مناسب للدردشة، الألعاب، التفاعل، والتعرف على ناس جديدة.
+            المكان مناسب للناس اللي تحب المرح والهدوء في نفس الوقت.
           </p>
         </div>
 
@@ -533,19 +531,19 @@
           <article class="card reveal">
             <div class="icon-box">🎮</div>
             <h3>ألعاب ومجتمع</h3>
-            <p>تقدر تعيش جو لعب ومرح، وتتعرف على ناس جديدة من نفس اهتماماتك وتشاركهم تجاربك.</p>
+            <p>تقدر تتعرف على أشخاص جديدين، تمارس ألعابك المفضلة، وتعيش جو رائع داخل السيرفر.</p>
           </article>
 
           <article class="card reveal">
             <div class="icon-box">⚡</div>
             <h3>أجواء حيوية</h3>
-            <p>دردشة ممتعة، أصدقاء جدد، ومناسبات وفعاليات تجعل السيرفر دايم حلو ومشغول.</p>
+            <p>دمج بين المرح والهدوء، ودردشة ممتعة، ومواقف لطيفة، واتصالات حلوة مع المجتمع.</p>
           </article>
 
           <article class="card reveal">
             <div class="icon-box">💬</div>
             <h3>تعارف ومرح</h3>
-            <p>سيرفر مليان أجواء مريحة، تنفتح فيه المحادثات، وتلاقي الناس اللي بتحب نفس الشي اللي تحبه.</p>
+            <p>سيرفر بيجمع الناس الطيبة، واللي تحب الدردشة وبيحب تستمتع بوقتها.</p>
           </article>
         </div>
       </div>
@@ -556,7 +554,7 @@
         <div class="section-head reveal">
           <div class="kicker">COMMUNITY RULES</div>
           <h2>قوانين السيرفر</h2>
-          <p>خلينا نحافظ على أجواء كويسة وممتعة للجميع، وكل واحد يحترم التاني.</p>
+          <p>خلينا نحافظ على جو محترم ومريح للجميع داخل المجتمع.</p>
         </div>
 
         <div class="rules-grid">
@@ -564,7 +562,7 @@
             <div class="rule-num">01</div>
             <div>
               <h3>الاحترام أولاً</h3>
-              <p>ممنوع الإهانة أو التنمر أو أي تصرف يخلّي الجو غير مناسب.</p>
+              <p>ممنوع أي تحرش أو إساءة أو كلام يخلّي الجو غير مناسب.</p>
             </div>
           </article>
 
@@ -572,7 +570,7 @@
             <div class="rule-num">02</div>
             <div>
               <h3>تجنب السبام</h3>
-              <p>لا نحب الرسائل المتكررة أو الإعلانات غير المناسبة واللي بتتعب المجتمع.</p>
+              <p>لا نحب الرسائل المتكررة أو الإعلانات أو أي شيء يزعج المجتمع.</p>
             </div>
           </article>
 
@@ -580,7 +578,7 @@
             <div class="rule-num">03</div>
             <div>
               <h3>احترم الخصوصية</h3>
-              <p>لا تنشر معلومات أحد أو صور خاصة أو أي شيء يخصه بدون إذنه.</p>
+              <p>لا تنشر معلومات أو صور أو تفاصيل تخص أي عضو بدون إذنه.</p>
             </div>
           </article>
 
@@ -588,7 +586,7 @@
             <div class="rule-num">04</div>
             <div>
               <h3>اتبع تعليمات الإدارة</h3>
-              <p>التزامك بتعليمات الإدارة يساعد السيرفر يظل منظم ومريح للجميع.</p>
+              <p>الالتزام بقرارات الإدارة مهم للحفاظ على النظام والهدوء في السيرفر.</p>
             </div>
           </article>
         </div>
@@ -598,9 +596,9 @@
     <section id="team">
       <div class="container">
         <div class="section-head reveal">
-          <div class="kicker">THE OWNER</div>
+          <div class="kicker">OWNER</div>
           <h2>مالك السيرفر</h2>
-          <p>منظم السيرفر وساهم في خلق جو مناسب لكل اللي بيحطوا وقتهم فيه.</p>
+          <p>اللي شغل عليه وخلق جو مناسب للناس اللي بتدخل فيه.</p>
         </div>
 
         <div class="cards">
@@ -608,21 +606,21 @@
             <div class="avatar">♛</div>
             <h3>lolx</h3>
             <span class="role">OWNER</span>
-            <p>مسؤول عن تطوير السيرفر، تنظيم أجوائه، ومتابعة المجتمع بشكل مستمر.</p>
+            <p>مسؤول عن تنظيم السيرفر، وإدارة المجتمع، وتوفير أجواء مريحة للجميع.</p>
           </article>
 
           <article class="card team-card reveal">
             <div class="avatar">✦</div>
             <h3>VEXIA</h3>
             <span class="role">COMMUNITY</span>
-            <p>مجتمع للأصدقاء، الألعاب، المرح، والناس اللي تحب التفاعل والجو المريح.</p>
+            <p>مجتمع للأصدقاء، اللعب، المرح، والتفاعل، وكل اللي يحب الجو الحلو.</p>
           </article>
 
           <article class="card team-card reveal">
             <div class="avatar">⬡</div>
             <h3>المجتمع</h3>
             <span class="role">FRIENDS</span>
-            <p>كل عضو يساهم في خلق أجواء حلوة وممتعة، وهذا هو سر السيرفر.</p>
+            <p>كل عضو يساهم في خلق جو حلو ومريح، وهذا سر السيرفر.</p>
           </article>
         </div>
       </div>
@@ -634,7 +632,7 @@
           <div class="kicker">YOUR NEXT COMMUNITY</div>
           <h2>جاهز تنضم لـ VEXIA؟</h2>
           <p>
-            إذا تحب جو كيوت، مرح، أصدقاء، دردشة، وألعاب، فانت في المكان الصح.
+            لو تحب أجواء لطيفة، دردشة ممتعة، ألعاب، وناس جديدة، فأنتم في المكان الصح.
             انضم الآن واستمتع بمجتمع حقيقي.
           </p>
           <a class="button" href="https://discord.gg/rMW8Svd9CW" target="_blank" rel="noopener noreferrer">انضم الآن ↗</a>
@@ -645,13 +643,14 @@
 
   <footer>
     <div class="container footer-inner">
-      <span>© <span id="year"></span> VEXIA — كل الحقوق محفوظة.</span>
+      <span>© <span id="year"></span> VEXIA — جميع الحقوق محفوظة.</span>
       <a href="#home">العودة للأعلى ↑</a>
     </div>
   </footer>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
     const revealItems = document.querySelectorAll(".reveal");
     if ("IntersectionObserver" in window) {
       const observer = new IntersectionObserver((entries) => {
@@ -662,6 +661,7 @@
           }
         });
       }, { threshold: 0.12 });
+
       revealItems.forEach((item) => observer.observe(item));
     } else {
       revealItems.forEach((item) => item.classList.add("visible"));
