@@ -1,168 +1,494 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#0b0713">
-  <meta name="description" content="انضم إلى VEXIA — مجتمع ألعاب ودردشة وفعاليات على Discord.">
-  <title>VEXIA — Discord Community</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#120d1d" />
+  <meta name="description" content="VEXIA — مجتمع للألعاب، الدردشة، والمرح." />
+  <title>VEXIA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #09060f;
-      --panel: rgba(23, 15, 36, .82);
-      --panel-2: #171023;
-      --purple: #9b5cff;
-      --purple-2: #6e35d8;
-      --pink: #d58cff;
-      --text: #fbf8ff;
-      --muted: #b6a9c9;
-      --line: rgba(193, 145, 255, .2);
+      --bg: #090610;
+      --bg-2: #120d1d;
+      --panel: rgba(25, 18, 34, 0.9);
+      --pink: #d9a8ff;
+      --purple: #9a5dff;
+      --purple-2: #6e39d7;
+      --text: #f9f4ff;
+      --muted: #c8b9d8;
+      --line: rgba(209, 169, 255, 0.22);
+      --shadow: rgba(128, 70, 255, 0.26);
       --radius: 24px;
     }
+
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
+      font-family: "Cairo", sans-serif;
       color: var(--text);
-      background:
-        radial-gradient(ellipse at 50% -10%, rgba(123, 49, 208, .28), transparent 42rem),
-        radial-gradient(circle at 5% 40%, rgba(112, 50, 187, .10), transparent 25rem),
-        var(--bg);
-      font-family: "Cairo", Arial, sans-serif;
+      background: radial-gradient(circle at top, rgba(155,92,255,0.2), transparent 28rem), radial-gradient(circle at left, rgba(155,92,255,0.12), transparent 24rem), var(--bg);
       overflow-x: hidden;
     }
     a { color: inherit; text-decoration: none; }
-    button, a { -webkit-tap-highlight-color: transparent; }
+    img { max-width: 100%; display: block; }
+
     .noise {
-      position: fixed; inset: 0; pointer-events: none; z-index: -1; opacity: .12;
-      background-image: radial-gradient(rgba(255,255,255,.2) .6px, transparent .6px);
-      background-size: 6px 6px;
-      mask-image: linear-gradient(to bottom, black, transparent 85%);
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.08;
+      background-image: radial-gradient(rgba(255,255,255,0.35) 1px, transparent 1px);
+      background-size: 7px 7px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,1), transparent 90%);
+      z-index: -1;
     }
-    .container { width: min(1120px, calc(100% - 36px)); margin-inline: auto; }
+
+    .container { width: min(1120px, calc(100% - 32px)); margin-inline: auto; }
+
     .nav-wrap {
-      position: sticky; top: 0; z-index: 20;
-      backdrop-filter: blur(18px); background: rgba(9,6,15,.76);
-      border-bottom: 1px solid rgba(255,255,255,.06);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(18px);
+      background: rgba(9, 6, 15, 0.72);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
     }
-    nav { display: flex; justify-content: space-between; align-items: center; min-height: 76px; gap: 20px; }
-    .brand { display: flex; align-items: center; gap: 12px; font-weight: 900; letter-spacing: 2px; font-size: 1.15rem; }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 76px;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
+      font-size: 1.15rem;
+      letter-spacing: 2px;
+    }
+
     .brand-mark {
-      width: 40px; height: 40px; border-radius: 13px; display: grid; place-items: center;
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
       background: linear-gradient(135deg, var(--pink), var(--purple-2));
-      box-shadow: 0 0 28px rgba(155,92,255,.35); font-size: 1.2rem;
+      box-shadow: 0 0 28px var(--shadow);
+      font-size: 1.2rem;
     }
-    .nav-links { display: flex; align-items: center; gap: 25px; color: var(--muted); font-size: .9rem; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
     .nav-links a:hover { color: white; }
+
     .nav-join, .button {
-      display: inline-flex; align-items: center; justify-content: center; gap: 9px;
-      border: 1px solid rgba(255,255,255,.12); border-radius: 14px; padding: 12px 19px;
-      color: white; font: inherit; font-weight: 800; cursor: pointer;
-      background: linear-gradient(135deg, #a15fff, #6b35d4);
-      box-shadow: 0 8px 30px rgba(116,57,216,.24); transition: transform .2s, box-shadow .2s, filter .2s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: linear-gradient(135deg, #a66bff, #6e38d9);
+      color: white;
+      font-weight: 800;
+      padding: 12px 20px;
+      box-shadow: 0 12px 30px rgba(128,70,255,0.26);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
     }
-    .nav-join:hover, .button:hover { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(116,57,216,.38); filter: brightness(1.08); }
-    .button.secondary { background: rgba(255,255,255,.045); box-shadow: none; border-color: var(--line); }
-    .hero { min-height: 690px; display: grid; place-items: center; text-align: center; position: relative; padding: 88px 0 76px; }
+
+    .nav-join:hover, .button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 42px rgba(128,70,255,0.35);
+      filter: brightness(1.06);
+    }
+
+    .button.secondary {
+      background: rgba(255,255,255,0.03);
+      border-color: var(--line);
+      box-shadow: none;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 680px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 90px 0 80px;
+    }
+
     .hero::before, .hero::after {
-      content: ""; position: absolute; width: 250px; height: 250px; border-radius: 50%;
-      filter: blur(75px); opacity: .24; pointer-events: none; animation: float 7s ease-in-out infinite;
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.26;
+      pointer-events: none;
+      animation: float 7s ease-in-out infinite;
     }
-    .hero::before { background: #8539ff; top: 18%; right: -90px; }
-    .hero::after { background: #c14dff; bottom: 8%; left: -100px; animation-delay: -3s; }
-    .hero-content { position: relative; z-index: 1; max-width: 800px; }
+
+    .hero::before {
+      background: #7c3bfd;
+      top: 18%;
+      right: -70px;
+    }
+
+    .hero::after {
+      background: #db8eff;
+      bottom: 8%;
+      left: -80px;
+      animation-delay: -3s;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 850px;
+    }
+
     .eyebrow {
-      display: inline-flex; align-items: center; gap: 9px; border: 1px solid var(--line);
-      background: rgba(155,92,255,.08); color: #dfc6ff; border-radius: 999px;
-      padding: 7px 14px; font-size: .85rem; margin-bottom: 25px;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 8px 16px;
+      color: #e4d0ff;
+      background: rgba(155,92,255,0.08);
+      font-size: 0.82rem;
+      margin-bottom: 24px;
     }
-    .pulse { width: 7px; height: 7px; background: #b58aff; border-radius: 50%; box-shadow: 0 0 12px #b58aff; }
+
+    .pulse {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #c79bff;
+      box-shadow: 0 0 12px #c79bff;
+    }
+
     .logo-frame {
-      width: 122px; height: 122px; margin: 0 auto 24px; padding: 4px; border-radius: 35px;
-      background: linear-gradient(135deg, #e1baff, #7d3bff, #35205c);
-      box-shadow: 0 0 60px rgba(155,92,255,.35); animation: logoFloat 4s ease-in-out infinite;
+      width: 132px;
+      height: 132px;
+      margin: 0 auto 24px;
+      padding: 4px;
+      border-radius: 36px;
+      background: linear-gradient(135deg, #f0d3ff, #8f58ff, #2c174a);
+      box-shadow: 0 0 55px rgba(155,92,255,0.4);
+      animation: logoFloat 4s ease-in-out infinite;
     }
-    .logo-frame img { width: 100%; height: 100%; display: block; border-radius: 31px; object-fit: cover; background: #1b1029; }
-    h1 { margin: 0; font-size: clamp(3.4rem, 10vw, 7rem); line-height: 1.05; font-weight: 900; letter-spacing: .06em; direction: ltr; }
-    .gradient-text { color: transparent; background: linear-gradient(90deg, #fff 10%, #d9b8ff 48%, #9d5bff 90%); background-clip: text; -webkit-background-clip: text; }
-    .hero p { max-width: 610px; margin: 22px auto 0; color: var(--muted); line-height: 2; font-size: 1.05rem; }
-    .hero-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
-    .micro { margin-top: 18px; color: #847594; font-size: .82rem; }
-    .scroll-cue { margin-top: 45px; color: #8c7b9f; font-size: .8rem; }
-    .scroll-cue span { display: block; animation: bob 1.6s infinite; font-size: 1.2rem; }
-    section { padding: 80px 0; }
-    .section-head { text-align: center; max-width: 680px; margin: 0 auto 38px; }
-    .kicker { color: #c69cff; font-weight: 800; font-size: .83rem; letter-spacing: .12em; }
-    h2 { font-size: clamp(1.8rem, 4vw, 2.7rem); margin: 9px 0 12px; }
-    .section-head p { color: var(--muted); line-height: 1.9; margin: 0; }
-    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+
+    .logo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 32px;
+      background: #140d1f;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(3.3rem, 9vw, 7rem);
+      line-height: 1.05;
+      letter-spacing: 0.05em;
+      direction: ltr;
+      font-weight: 900;
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, #ffffff 12%, #e1c1ff 42%, #a867ff 88%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin: 22px auto 0;
+      color: var(--muted);
+      line-height: 2;
+      font-size: 1.08rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .micro {
+      margin-top: 18px;
+      color: #8d7aa6;
+      font-size: 0.82rem;
+    }
+
+    .scroll-cue {
+      margin-top: 38px;
+      color: #a190ba;
+      font-size: 0.8rem;
+    }
+
+    .scroll-cue span {
+      display: block;
+      font-size: 1.2rem;
+      margin-top: 4px;
+      animation: bob 1.5s infinite;
+    }
+
+    section { padding: 78px 0; }
+
+    .section-head {
+      max-width: 720px;
+      margin: 0 auto 38px;
+      text-align: center;
+    }
+
+    .kicker {
+      color: #d4a9ff;
+      font-weight: 800;
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+    }
+
+    h2 {
+      margin: 8px 0 12px;
+      font-size: clamp(2rem, 4vw, 3rem);
+    }
+
+    .section-head p {
+      color: var(--muted);
+      line-height: 1.9;
+      margin: 0;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
     .card {
-      padding: 25px; border-radius: var(--radius); border: 1px solid var(--line);
-      background: linear-gradient(145deg, rgba(34,22,51,.88), rgba(17,11,26,.85));
-      transition: transform .25s, border-color .25s; min-width: 0;
+      background: linear-gradient(145deg, rgba(32, 22, 47, 0.9), rgba(18,12,28,0.88));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 26px;
+      transition: transform 0.25s ease, border-color 0.25s ease;
     }
-    .card:hover { transform: translateY(-5px); border-color: rgba(190,140,255,.48); }
-    .icon-box { width: 48px; height: 48px; display: grid; place-items: center; border-radius: 15px; background: rgba(155,92,255,.14); color: #d9b8ff; font-size: 1.4rem; margin-bottom: 16px; }
-    .card h3 { margin: 0 0 9px; font-size: 1.1rem; }
-    .card p { color: var(--muted); margin: 0; line-height: 1.9; font-size: .94rem; }
-    .rules-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
-    .rule { display: flex; align-items: flex-start; gap: 14px; padding: 20px; border-radius: 18px; background: rgba(255,255,255,.025); border: 1px solid rgba(255,255,255,.07); }
-    .rule-num { flex: 0 0 34px; height: 34px; display: grid; place-items: center; border-radius: 11px; color: #e2caff; background: rgba(155,92,255,.16); font-weight: 900; }
-    .rule h3 { margin: 0 0 5px; font-size: 1rem; }
-    .rule p { margin: 0; color: var(--muted); font-size: .9rem; line-height: 1.8; }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(200,164,255,0.46);
+    }
+
+    .icon-box {
+      width: 50px;
+      height: 50px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background: rgba(155,92,255,0.12);
+      color: #e4c9ff;
+      font-size: 1.4rem;
+      margin-bottom: 16px;
+    }
+
+    .card h3 {
+      margin: 0 0 8px;
+      font-size: 1.12rem;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.9;
+      font-size: 0.96rem;
+    }
+
+    .rules-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .rule {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.025);
+      border-radius: 18px;
+      padding: 20px 18px;
+    }
+
+    .rule-num {
+      flex: 0 0 38px;
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: rgba(155,92,255,0.15);
+      color: #ebd9ff;
+      font-weight: 900;
+    }
+
+    .rule h3 {
+      margin: 0 0 6px;
+      font-size: 1.02rem;
+    }
+
+    .rule p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 0.9rem;
+    }
+
     .team-card { text-align: center; }
-    .avatar { width: 74px; height: 74px; border-radius: 24px; margin: 0 auto 15px; display: grid; place-items: center; background: linear-gradient(135deg, #a15fff, #372052); border: 1px solid #caa4ff55; font-size: 1.7rem; }
-    .role { display: inline-block; margin-top: 5px; padding: 4px 10px; border-radius: 999px; font-size: .75rem; color: #dec7ff; background: rgba(155,92,255,.13); }
-    .team-note { margin-top: 18px !important; font-size: .8rem !important; }
-    .socials { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; }
-    .social-link { min-width: 150px; text-align: center; padding: 14px 20px; border: 1px solid var(--line); border-radius: 15px; background: rgba(255,255,255,.025); transition: .2s; }
-    .social-link:hover { background: rgba(155,92,255,.12); transform: translateY(-3px); }
-    .cta {
-      padding: 44px 25px; border-radius: 30px; border: 1px solid rgba(197,151,255,.28);
-      background: radial-gradient(ellipse at top, rgba(126,55,220,.25), transparent 70%), #140d20;
-      text-align: center; overflow: hidden; position: relative;
+
+    .avatar {
+      width: 76px;
+      height: 76px;
+      margin: 0 auto 16px;
+      display: grid;
+      place-items: center;
+      border-radius: 24px;
+      background: linear-gradient(135deg, #a86dff, #382456);
+      border: 1px solid rgba(211,184,255,0.4);
+      font-size: 1.75rem;
     }
-    .cta p { color: var(--muted); line-height: 1.9; margin: 8px auto 23px; max-width: 520px; }
-    footer { border-top: 1px solid rgba(255,255,255,.07); padding: 25px 0; color: #8d809e; font-size: .82rem; }
-    .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
-    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-    @keyframes logoFloat { 0%,100% { transform: translateY(0) rotate(-2deg); } 50% { transform: translateY(-9px) rotate(2deg); } }
-    @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-25px); } }
-    @keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
+
+    .role {
+      display: inline-block;
+      margin-top: 6px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: rgba(155,92,255,0.14);
+      color: #e7d4ff;
+      font-size: 0.74rem;
+      font-weight: 700;
+    }
+
+    .team-card p {
+      margin-top: 16px !important;
+      font-size: 0.8rem !important;
+    }
+
+    .cta {
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      padding: 44px 28px;
+      border-radius: 30px;
+      border: 1px solid rgba(209,168,255,0.28);
+      background: radial-gradient(ellipse at top, rgba(133,79,214,0.26), transparent 68%), #140e1f;
+    }
+
+    .cta p {
+      max-width: 560px;
+      margin: 10px auto 24px;
+      color: var(--muted);
+      line-height: 1.9;
+    }
+
+    footer {
+      padding: 28px 0 36px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      color: #8e7f9f;
+      font-size: 0.82rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes logoFloat {
+      0%, 100% { transform: translateY(0) rotate(-2deg); }
+      50% { transform: translateY(-8px) rotate(2deg); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-25px); }
+    }
+
+    @keyframes bob {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(7px); }
+    }
+
     @media (max-width: 760px) {
       .nav-links { display: none; }
-      .nav-join { padding: 10px 13px; font-size: .85rem; }
-      .hero { min-height: 620px; padding: 65px 0 55px; }
-      .cards { grid-template-columns: 1fr; }
-      .rules-grid { grid-template-columns: 1fr; }
+      .nav-join { padding: 10px 14px; font-size: 0.85rem; }
+      .hero { min-height: 620px; padding-top: 70px; }
+      .cards, .rules-grid { grid-template-columns: 1fr; }
       section { padding: 60px 0; }
-      .logo-frame { width: 105px; height: 105px; }
-      .hero p { font-size: .97rem; }
+      .logo-frame { width: 108px; height: 108px; }
+      .hero p { font-size: 0.98rem; }
     }
+
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { scroll-behavior: auto !important; animation: none !important; transition: none !important; }
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+      }
       .reveal { opacity: 1; transform: none; }
     }
   </style>
 </head>
 <body>
   <div class="noise" aria-hidden="true"></div>
+
   <div class="nav-wrap">
     <nav class="container">
-      <a class="brand" href="#home" aria-label="VEXIA الصفحة الرئيسية">
-        <span class="brand-mark">V</span><span>VEXIA</span>
+      <a href="#home" class="brand" aria-label="VEXIA Home">
+        <span class="brand-mark">V</span>
+        <span>VEXIA</span>
       </a>
+
       <div class="nav-links">
         <a href="#about">عن السيرفر</a>
         <a href="#rules">القوانين</a>
-        <a href="#team">الإدارة</a>
-        <a href="#social">روابطنا</a>
+        <a href="#team">المالك</a>
+        <a href="#join">انضم الآن</a>
       </div>
-      <a class="nav-join" href="https://discord.gg/vx" target="_blank" rel="noopener noreferrer">انضم للسيرفر ↗</a>
+
+      <a class="nav-join" href="https://discord.gg/rMW8Svd9CW" target="_blank" rel="noopener noreferrer">انضم للسيرفر ↗</a>
     </nav>
   </div>
 
@@ -170,17 +496,24 @@
     <section class="hero" id="home">
       <div class="container hero-content">
         <div class="eyebrow"><span class="pulse"></span> مجتمعك يبدأ من هنا</div>
+
         <div class="logo-frame">
-          <!-- ضع صورة شعارك باسم logo.png داخل مجلد assets -->
-          <img src="assets/logo.png" alt="شعار سيرفر VEXIA" onerror="this.style.opacity='.18'; this.alt='أضف ملف assets/logo.png';">
+          <img src="assets/logo.svg" alt="VEXIA logo" />
         </div>
+
         <h1 class="gradient-text">VEXIA</h1>
-        <p>مش مجرد سيرفر ديسكورد — دي مساحة تجمعنا للألعاب، الدردشة، الفعاليات والتعرف على ناس جديدة. مكانك مستنّيك!</p>
+
+        <p>
+          VEXIA مش مجرد سيرفر — هو مساحة حلوة للمرح، الدردشة، الألعاب، والتعرف على ناس جديدة.
+          فيه أجواء مريحة ومشوقة، ومجتمع تقدر تتفاعل معه وتستمتع بوقتك.
+        </p>
+
         <div class="hero-actions">
-          <a class="button" href="https://discord.gg/vx" target="_blank" rel="noopener noreferrer">✦ انضم إلى VEXIA</a>
-          <a class="button secondary" href="#about">اكتشف المجتمع ↓</a>
+          <a class="button" href="https://discord.gg/rMW8Svd9CW" target="_blank" rel="noopener noreferrer">✦ انضم إلى VEXIA</a>
+          <a class="button secondary" href="#about">اكتشف أكثر ↓</a>
         </div>
-        <div class="micro">مجتمع • ألعاب • فعاليات • أصدقاء</div>
+
+        <div class="micro">ألعاب • دردشة • أصدقاء • فعاليات • مرح</div>
         <div class="scroll-cue">اكتشف المزيد <span>⌄</span></div>
       </div>
     </section>
@@ -188,14 +521,32 @@
     <section id="about">
       <div class="container">
         <div class="section-head reveal">
-          <div class="kicker">WHY VEXIA?</div>
-          <h2>مكانك وسط المجتمع</h2>
-          <p>عدّل المميزات دي بما يناسب سيرفرك الحقيقي — كل النصوص هنا قابلة للتغيير من ملف index.html.</p>
+          <div class="kicker">ABOUT VEXIA</div>
+          <h2>مجتمع يجمع المرح والناس الجيدة</h2>
+          <p>
+            في VEXIA، أنت بتلقى جو مناسب لألعابك المفضلة، دردشة ممتعة، ومناقشات لا تنتهي.
+            المكان مناسب لمن يحب التفاعل، الاسترخاء، واللحظات المضحكة مع ناس جديدة.
+          </p>
         </div>
+
         <div class="cards">
-          <article class="card reveal"><div class="icon-box">🎮</div><h3>مجتمع الألعاب</h3><p>اتعرف على لاعبين جدد، كوّن فريقك، وشاركنا ألعابك المفضلة.</p></article>
-          <article class="card reveal"><div class="icon-box">⚡</div><h3>فعاليات وتحديات</h3><p>مساحة للفعاليات والمسابقات والتحديات — أضف مواعيد فعالياتك هنا.</p></article>
-          <article class="card reveal"><div class="icon-box">💬</div><h3>دردشة وتعارف</h3><p>شارك اهتماماتك، اتكلم مع المجتمع، وخلي تجربتك ممتعة ومحترمة.</p></article>
+          <article class="card reveal">
+            <div class="icon-box">🎮</div>
+            <h3>ألعاب ومجتمع</h3>
+            <p>تقدر تعيش جو لعب ومرح، وتتعرف على ناس جديدة من نفس اهتماماتك وتشاركهم تجاربك.</p>
+          </article>
+
+          <article class="card reveal">
+            <div class="icon-box">⚡</div>
+            <h3>أجواء حيوية</h3>
+            <p>دردشة ممتعة، أصدقاء جدد، ومناسبات وفعاليات تجعل السيرفر دايم حلو ومشغول.</p>
+          </article>
+
+          <article class="card reveal">
+            <div class="icon-box">💬</div>
+            <h3>تعارف ومرح</h3>
+            <p>سيرفر مليان أجواء مريحة، تنفتح فيه المحادثات، وتلاقي الناس اللي بتحب نفس الشي اللي تحبه.</p>
+          </article>
         </div>
       </div>
     </section>
@@ -203,15 +554,43 @@
     <section id="rules">
       <div class="container">
         <div class="section-head reveal">
-          <div class="kicker">COMMUNITY GUIDELINES</div>
-          <h2>قوانين VEXIA</h2>
-          <p>خلّينا نحافظ على مجتمع آمن ومحترم للجميع.</p>
+          <div class="kicker">COMMUNITY RULES</div>
+          <h2>قوانين السيرفر</h2>
+          <p>خلينا نحافظ على أجواء كويسة وممتعة للجميع، وكل واحد يحترم التاني.</p>
         </div>
+
         <div class="rules-grid">
-          <article class="rule reveal"><div class="rule-num">01</div><div><h3>الاحترام أولًا</h3><p>ممنوع الإهانة أو التنمر أو المضايقات تجاه أي عضو.</p></div></article>
-          <article class="rule reveal"><div class="rule-num">02</div><div><h3>ممنوع السبام</h3><p>تجنب تكرار الرسائل أو الإعلانات غير المسموح بها.</p></div></article>
-          <article class="rule reveal"><div class="rule-num">03</div><div><h3>احترم الخصوصية</h3><p>ممنوع نشر المعلومات الشخصية أو الصور الخاصة دون إذن.</p></div></article>
-          <article class="rule reveal"><div class="rule-num">04</div><div><h3>اتبع تعليمات الإدارة</h3><p>التزم بقواعد القنوات وتعليمات فريق الإدارة.</p></div></article>
+          <article class="rule reveal">
+            <div class="rule-num">01</div>
+            <div>
+              <h3>الاحترام أولاً</h3>
+              <p>ممنوع الإهانة أو التنمر أو أي تصرف يخلّي الجو غير مناسب.</p>
+            </div>
+          </article>
+
+          <article class="rule reveal">
+            <div class="rule-num">02</div>
+            <div>
+              <h3>تجنب السبام</h3>
+              <p>لا نحب الرسائل المتكررة أو الإعلانات غير المناسبة واللي بتتعب المجتمع.</p>
+            </div>
+          </article>
+
+          <article class="rule reveal">
+            <div class="rule-num">03</div>
+            <div>
+              <h3>احترم الخصوصية</h3>
+              <p>لا تنشر معلومات أحد أو صور خاصة أو أي شيء يخصه بدون إذنه.</p>
+            </div>
+          </article>
+
+          <article class="rule reveal">
+            <div class="rule-num">04</div>
+            <div>
+              <h3>اتبع تعليمات الإدارة</h3>
+              <p>التزامك بتعليمات الإدارة يساعد السيرفر يظل منظم ومريح للجميع.</p>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -219,40 +598,46 @@
     <section id="team">
       <div class="container">
         <div class="section-head reveal">
-          <div class="kicker">THE PEOPLE BEHIND VEXIA</div>
-          <h2>فريق الإدارة</h2>
-          <p>دي أسماء تجريبية للتصميم. غيّرها للأسماء الحقيقية بموافقة أصحابها.</p>
+          <div class="kicker">THE OWNER</div>
+          <h2>مالك السيرفر</h2>
+          <p>منظم السيرفر وساهم في خلق جو مناسب لكل اللي بيحطوا وقتهم فيه.</p>
         </div>
+
         <div class="cards">
-          <article class="card team-card reveal"><div class="avatar">♛</div><h3>اسم المالك</h3><span class="role">OWNER</span><p class="team-note">مسؤول عن إدارة المجتمع وتطويره.</p></article>
-          <article class="card team-card reveal"><div class="avatar">✦</div><h3>اسم الإدارة العليا</h3><span class="role">HEAD ADMIN</span><p class="team-note">تنظيم الفريق ومتابعة شؤون السيرفر.</p></article>
-          <article class="card team-card reveal"><div class="avatar">⬡</div><h3>اسم المشرف</h3><span class="role">MODERATOR</span><p class="team-note">مساعدة الأعضاء والحفاظ على النظام.</p></article>
+          <article class="card team-card reveal">
+            <div class="avatar">♛</div>
+            <h3>lolx</h3>
+            <span class="role">OWNER</span>
+            <p>مسؤول عن تطوير السيرفر، تنظيم أجوائه، ومتابعة المجتمع بشكل مستمر.</p>
+          </article>
+
+          <article class="card team-card reveal">
+            <div class="avatar">✦</div>
+            <h3>VEXIA</h3>
+            <span class="role">COMMUNITY</span>
+            <p>مجتمع للأصدقاء، الألعاب، المرح، والناس اللي تحب التفاعل والجو المريح.</p>
+          </article>
+
+          <article class="card team-card reveal">
+            <div class="avatar">⬡</div>
+            <h3>المجتمع</h3>
+            <span class="role">FRIENDS</span>
+            <p>كل عضو يساهم في خلق أجواء حلوة وممتعة، وهذا هو سر السيرفر.</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <section id="social">
-      <div class="container">
-        <div class="section-head reveal">
-          <div class="kicker">STAY CONNECTED</div>
-          <h2>تابع VEXIA</h2>
-          <p>استبدل الروابط التجريبية بروابط حساباتك الرسمية. لو مش عندك حساب، احذف الزر المقابل.</p>
-        </div>
-        <div class="socials reveal">
-          <a class="social-link" href="https://discord.gg/vx" target="_blank" rel="noopener noreferrer">◈ Discord</a>
-          <a class="social-link" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">◎ Instagram</a>
-          <a class="social-link" href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">▷ YouTube</a>
-        </div>
-      </div>
-    </section>
-
-    <section>
+    <section id="join">
       <div class="container">
         <div class="cta reveal">
           <div class="kicker">YOUR NEXT COMMUNITY</div>
           <h2>جاهز تنضم لـ VEXIA؟</h2>
-          <p>اضغط على الزر وانضم من خلال رابط دعوة Discord. نشوفك جوّه!</p>
-          <a class="button" href="https://discord.gg/vx" target="_blank" rel="noopener noreferrer">انضم الآن ↗</a>
+          <p>
+            إذا تحب جو كيوت، مرح، أصدقاء، دردشة، وألعاب، فانت في المكان الصح.
+            انضم الآن واستمتع بمجتمع حقيقي.
+          </p>
+          <a class="button" href="https://discord.gg/rMW8Svd9CW" target="_blank" rel="noopener noreferrer">انضم الآن ↗</a>
         </div>
       </div>
     </section>
@@ -260,7 +645,7 @@
 
   <footer>
     <div class="container footer-inner">
-      <span>© <span id="year"></span> VEXIA. جميع الحقوق محفوظة.</span>
+      <span>© <span id="year"></span> VEXIA — كل الحقوق محفوظة.</span>
       <a href="#home">العودة للأعلى ↑</a>
     </div>
   </footer>
